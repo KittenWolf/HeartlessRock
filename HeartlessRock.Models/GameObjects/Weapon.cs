@@ -1,24 +1,16 @@
-﻿using HeartlessRock.Models.GameObjects;
+﻿using HeartlessRock.Models.Abstractions;
+using HeartlessRock.Models.GameObjects;
 
 namespace HeartlessRock.Models
 {
-    public class Weapon : Card
+    public abstract class Weapon : Card, IWeapon
     {
-        public enum WeaponCategory
-        {
-            Bow,
-            Dagger,
-            Sword,
-            Hummer,
-            Shield,
-        }
-
         public int Attack { get; set; }
         public byte Durability { get; set; }
 
-        [SearchTag] public WeaponCategory Category { get; set; }
+        [SearchTag] public IWeapon.WeaponCategory Category { get; init; }
 
-        public Weapon(int attack, byte durabiliry, WeaponCategory category, string name, byte manaCost, Rarity.RarityType rarity, Hero.HeroClass @class)
+        public Weapon(int attack, byte durabiliry, IWeapon.WeaponCategory category, string name, byte manaCost, Rarity.RarityType rarity, IHero.HeroClass @class)
             : base(name, manaCost, rarity, @class)
         {
             Attack = attack;
@@ -27,5 +19,9 @@ namespace HeartlessRock.Models
 
             ObjectType.Add(GameObjectType.Weapon);
         }
+
+        public abstract void SetProp(IWeapon.WeaponProp prop);
+        public abstract void RemoveProp(IWeapon.WeaponProp prop);
+        public abstract void Break();
     }
 }

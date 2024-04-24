@@ -1,12 +1,13 @@
 ﻿namespace HeartlessRock.Models.Abstractions
 {
-    public partial interface ICharacter 
+    public partial interface ICharacter
     {
-        Health Health { get; protected set; }
-        Attack Attack { get; protected set; }
+        ushort Armor { get; }
+        Health Health { get; init; }
+        Attack Attack { get; init; }
 
-        CharacterCategory Category { get; set; }
-        ICollection<CharacterProp> Props { get; set; }
+        CharacterCategory Category { get; init; }
+        ICollection<CharacterProp> Props { get; init; }
 
         void SetProp(CharacterProp prop);
         void RemoveProp(CharacterProp prop);
@@ -52,6 +53,7 @@
         {
             Attacked,
             NotAttacked,
+            CanAttack,
             Damaged,
             Frozen,
             Sleep,

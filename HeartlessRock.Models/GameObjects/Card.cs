@@ -1,14 +1,16 @@
-﻿namespace HeartlessRock.Models.GameObjects
+﻿using HeartlessRock.Models.Abstractions;
+
+namespace HeartlessRock.Models.GameObjects
 {
-    public abstract class Card : GameObject
+    public abstract class Card : GameObject, ICard
     {
-        public string Name { get; set; }
-        public byte ManaCost { get; set; }
-        public Rarity Rarity { get; set; }
+        public string Name { get; init; }
+        public byte ManaCost { get; protected set; }
+        public Rarity Rarity { get; init; }
 
-        [SearchTag] public Hero.HeroClass Class { get; set; }
+        [SearchTag] public IHero.HeroClass Class { get; init; }
 
-        public Card(string name, byte manaCost, Rarity.RarityType rarity, Hero.HeroClass @class)
+        public Card(string name, byte manaCost, Rarity.RarityType rarity, IHero.HeroClass @class)
         {
             Name = name;
             ManaCost = manaCost;
@@ -22,6 +24,11 @@
         public void Destroy()
         {
             Status = GameObjectStatus.Destroyed;
+        }
+
+        public void Discard()
+        {
+            Status = GameObjectStatus.Discarded;
         }
 
         public int CompareTo(Card other)

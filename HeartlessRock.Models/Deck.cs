@@ -1,19 +1,20 @@
-﻿using HeartlessRock.Models.GameObjects;
+﻿using HeartlessRock.Models.Abstractions;
+using HeartlessRock.Models.GameObjects;
 
 namespace HeartlessRock.Models
 {
-    public class Deck(string name, Hero.HeroClass hero)
+    public class Deck(string name, IHero.HeroClass hero)
     {
         private const int MaxDeckSize = 30;
 
         public readonly string Name = name;
-        public readonly Hero Hero = new(hero);
+        public readonly IHero.HeroClass Class = hero;
 
         public List<Card> Cards { get; } = new(MaxDeckSize);
 
         public void AddCard(Card card)
         {
-            if (card.Class == Hero.Class)
+            if (card.Class == Class)
             {
                 Cards.Add(card);
             }

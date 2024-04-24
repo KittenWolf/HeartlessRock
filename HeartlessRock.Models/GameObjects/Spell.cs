@@ -1,23 +1,13 @@
-﻿using HeartlessRock.Models.GameObjects;
+﻿using HeartlessRock.Models.Abstractions;
+using HeartlessRock.Models.GameObjects;
 
 namespace HeartlessRock.Models
 {
-    public class Spell : Card
+    public class Spell : Card, ISpell
     {
-        public enum SpellCategory
-        {
-            Fire,
-            Arcane,
-            Frost,
-            Shadow,
-            Holy,
-            Nature,
-            Fel
-        }
+        [SearchTag] public ISpell.SpellCategory Category { get; init; }
 
-        [SearchTag] public SpellCategory Category { get; protected set; }
-
-        public Spell(SpellCategory category, string name, byte manaCost, Rarity.RarityType rarity, Hero.HeroClass @class)
+        public Spell(ISpell.SpellCategory category, string name, byte manaCost, Rarity.RarityType rarity, IHero.HeroClass @class)
             : base(name, manaCost, rarity, @class)
         {
             Category = category;

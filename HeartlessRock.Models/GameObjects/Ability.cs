@@ -1,15 +1,17 @@
-﻿namespace HeartlessRock.Models.GameObjects
+﻿using HeartlessRock.Models.Abstractions;
+
+namespace HeartlessRock.Models.GameObjects
 {
-    public class Ability : GameObject
+    public class Ability : GameObject, IAbility
     {
         public bool AbilityIsReady = false;
 
-        [SearchTag] public Hero.HeroClass Class { get; private set; }
+        [SearchTag] public IHero.HeroClass Class { get; private set; }
 
         public byte AbilityCost { get; protected set; }
         public string? AbilityInfo { get; protected set; }
 
-        public Ability(Hero.HeroClass @class, byte cost)
+        public Ability(IHero.HeroClass @class, byte cost)
         {
             Class = @class;
             AbilityCost = cost;

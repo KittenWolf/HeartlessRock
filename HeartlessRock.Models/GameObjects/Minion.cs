@@ -3,16 +3,16 @@ using HeartlessRock.Models.GameObjects;
 
 namespace HeartlessRock.Models
 {
-    public class Minion : Card, ICharacter
+    public abstract class Minion : Card, IMinion
     {
-        public ushort Armor { get; set; }
-        public Attack Attack { get; set; }
-        public Health Health { get; set; }
+        public ushort Armor { get; protected set; } = 0;
+        public Attack Attack { get; init; }
+        public Health Health { get; init; }
 
-        [SearchTag] public ICollection<ICharacter.CharacterProp> Props { get; set; } = [];
-        [SearchTag] public ICharacter.CharacterCategory Category { get; set; } = ICharacter.CharacterCategory.NoType;
+        [SearchTag] public ICollection<ICharacter.CharacterProp> Props { get; init; } = [];
+        [SearchTag] public ICharacter.CharacterCategory Category { get; init; } = ICharacter.CharacterCategory.NoType;
 
-        public Minion(Attack attack, Health health, string name, byte manaCost, Rarity.RarityType rarity, Hero.HeroClass @class) 
+        public Minion(Attack attack, Health health, string name, byte manaCost, Rarity.RarityType rarity, IHero.HeroClass @class) 
             : base(name, manaCost, rarity, @class)
         {
             Attack = attack;
@@ -22,29 +22,12 @@ namespace HeartlessRock.Models
             ObjectType.Add(GameObjectType.Character);
         }
 
-        public void SetProp(ICharacter.CharacterProp prop)
-        {
-        }
-
-        public void RemoveProp(ICharacter.CharacterProp prop)
-        {
-        }
-
-        public void Die()
-        {
-        }
-
-        public void DoAttack()
-        {
-        }
-
-        public void TakeDamage(int damage)
-        {
-        }
-
-        public void TakeHeal(int health)
-        {
-        }
+        public abstract void SetProp(ICharacter.CharacterProp prop);
+        public abstract void RemoveProp(ICharacter.CharacterProp prop);
+        public abstract void Die();
+        public abstract void DoAttack();
+        public abstract void TakeDamage(int damage);
+        public abstract void TakeHeal(int health);
     }
 
 }
