@@ -1,4 +1,4 @@
-﻿using HeartlessRock.Models.GameObjects;
+﻿using HeartlessRock.Models.Objects;
 
 namespace HeartlessRock.Models
 {

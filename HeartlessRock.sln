@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartlessRock.Models", "HeartlessRock.Models\HeartlessRock.Models.csproj", "{C71EDA73-2FD7-4BCC-88EA-D321CDC2D3E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeartlessRock.Models", "HeartlessRock.Models\HeartlessRock.Models.csproj", "{C71EDA73-2FD7-4BCC-88EA-D321CDC2D3E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartlessRock.Events", "HeartlessRock.Events\HeartlessRock.Events.csproj", "{3F9671F9-8ACE-4778-9535-327ADAD4644D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeartlessRock.Events", "HeartlessRock.Events\HeartlessRock.Events.csproj", "{3F9671F9-8ACE-4778-9535-327ADAD4644D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartlessRock.Game", "HeartlessRock.Game\HeartlessRock.Game.csproj", "{AFE21334-28ED-470F-82F5-70D8CD6430FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeartlessRock.Game", "HeartlessRock.Game\HeartlessRock.Game.csproj", "{AFE21334-28ED-470F-82F5-70D8CD6430FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartlessRock.Data", "HeartlessRock.Data\HeartlessRock.Data.csproj", "{864A02D5-F214-4A63-9423-BF22FF211469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartlessRock.GameModes", "HeartlessRock.GameModes\HeartlessRock.GameModes.csproj", "{DB4ECFF7-9087-497D-9BC9-ECC5F692C9A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartlessRock.ClassicGameMode", "HeatlessRock.ClassicGameMode\HeartlessRock.ClassicGameMode.csproj", "{C387DC53-CE87-425B-AA18-7B6D683EBD82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{AFE21334-28ED-470F-82F5-70D8CD6430FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFE21334-28ED-470F-82F5-70D8CD6430FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFE21334-28ED-470F-82F5-70D8CD6430FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864A02D5-F214-4A63-9423-BF22FF211469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864A02D5-F214-4A63-9423-BF22FF211469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864A02D5-F214-4A63-9423-BF22FF211469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864A02D5-F214-4A63-9423-BF22FF211469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB4ECFF7-9087-497D-9BC9-ECC5F692C9A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB4ECFF7-9087-497D-9BC9-ECC5F692C9A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB4ECFF7-9087-497D-9BC9-ECC5F692C9A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB4ECFF7-9087-497D-9BC9-ECC5F692C9A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C387DC53-CE87-425B-AA18-7B6D683EBD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C387DC53-CE87-425B-AA18-7B6D683EBD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C387DC53-CE87-425B-AA18-7B6D683EBD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C387DC53-CE87-425B-AA18-7B6D683EBD82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,6 @@
 ﻿using HeartlessRock.Models.Abstractions;
-using HeartlessRock.Models.GameObjects;
 
-namespace HeartlessRock.Models
+namespace HeartlessRock.Models.Objects
 {
     public abstract class Hero : GameObject, IHero
     {
@@ -52,6 +51,5 @@ namespace HeartlessRock.Models
         public abstract void TakeHeal(int health);
         public abstract void UseAbility();
         public abstract void WearWeapon(Weapon weapon);
-
     }
 }

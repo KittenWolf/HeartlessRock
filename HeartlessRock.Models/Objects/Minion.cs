@@ -1,7 +1,7 @@
 ﻿using HeartlessRock.Models.Abstractions;
-using HeartlessRock.Models.GameObjects;
+using HeartlessRock.Models.Objects;
 
-namespace HeartlessRock.Models
+namespace HeartlessRock.Models.Objects
 {
     public abstract class Minion : Card, IMinion
     {
@@ -29,5 +29,4 @@ namespace HeartlessRock.Models
         public abstract void TakeDamage(int damage);
         public abstract void TakeHeal(int health);
     }
-
 }

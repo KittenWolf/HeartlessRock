@@ -1,5 +1,5 @@
 ﻿using HeartlessRock.Events.Abstractions;
-using HeartlessRock.Models.GameObjects;
+using HeartlessRock.Models.Objects;
 
 namespace HeartlessRock.Events.PlayerEvents
 {

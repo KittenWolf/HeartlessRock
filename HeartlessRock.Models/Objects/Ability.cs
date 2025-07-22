@@ -1,8 +1,8 @@
 ﻿using HeartlessRock.Models.Abstractions;
 
-namespace HeartlessRock.Models.GameObjects
+namespace HeartlessRock.Models.Objects
 {
-    public class Ability : GameObject, IAbility
+    public abstract class Ability : GameObject, IAbility
     {
         public bool AbilityIsReady = false;
 

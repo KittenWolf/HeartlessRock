@@ -1,6 +1,4 @@
-﻿using HeartlessRock.Models.Abstractions;
-
-namespace HeartlessRock.Models.GameObjects
+﻿namespace HeartlessRock.Models.Abstractions
 {
     public interface IAbility
     {

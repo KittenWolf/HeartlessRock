@@ -1,7 +1,6 @@
 ﻿using HeartlessRock.Models.Abstractions;
-using HeartlessRock.Models.GameObjects;
 
-namespace HeartlessRock.Models
+namespace HeartlessRock.Models.Objects
 {
     public abstract class Weapon : Card, IWeapon
     {

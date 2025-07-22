@@ -1,6 +1,6 @@
 ﻿using HeartlessRock.Models.Abstractions;
 
-namespace HeartlessRock.Models.GameObjects
+namespace HeartlessRock.Models.Objects
 {
     public abstract class Card : GameObject, ICard
     {
