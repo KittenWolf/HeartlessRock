@@ -1,8 +1,7 @@
-﻿namespace HeartlessRock.GameModes.Abstractions
+﻿namespace HeartlessRock.GameModes.Abstractions;
+
+public interface IGameMode
 {
-    public interface IGameMode
-    {
-        void Start();
-        void End();
-    }
+    void Start();
+    void End();
 }

@@ -1,22 +1,23 @@
-﻿namespace HeartlessRock.Models
+﻿using HeartlessRock.Models.Objects;
+
+namespace HeartlessRock.Models;
+
+public class Board
 {
-    public class Board
+    private const int MaxBoardSize = 7;
+
+    public List<Minion> Minions = new(MaxBoardSize);
+
+    public bool HasFreeSpace()
     {
-        private const int MaxBoardSize = 7;
+        return Minions.Count < MaxBoardSize;
+    }
 
-        public List<Minion> Minions = new(MaxBoardSize);
-
-        public bool HasFreeSpace()
+    public void SummonMinion(Minion minion)
+    {
+        if (Minions.Count < MaxBoardSize)
         {
-            return Minions.Count < MaxBoardSize;
-        }
-
-        public void SummonMinion(Minion minion)
-        {
-            if (Minions.Count < MaxBoardSize)
-            {
-                Minions.Add(minion);
-            }
+            Minions.Add(minion);
         }
     }
 }

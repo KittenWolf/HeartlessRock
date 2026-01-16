@@ -1,6 +1,5 @@
-﻿namespace HeartlessRock.Models.Abstractions
+﻿namespace HeartlessRock.Models.Abstractions;
+
+public interface IMinion : ICharacter
 {
-    public interface IMinion : ICharacter
-    {
-    }
 }

@@ -1,14 +1,13 @@
 ﻿using HeartlessRock.Events.Abstractions;
-using HeartlessRock.Models;
+using HeartlessRock.Models.Objects;
 
-namespace HeartlessRock.Events.PlayerEvents
+namespace HeartlessRock.Events.PlayerEvents;
+
+public class CastSpellEventArgs : PlayCardEventArgs
 {
-    public class CastSpellEventArgs : PlayCardEventArgs
+    public CastSpellEventArgs(Spell spell, IEventInitiator initiator, byte repeats)
+        : base(spell, initiator, repeats)
     {
-        public CastSpellEventArgs(Spell spell, IEventInitiator initiator, byte repeats) 
-            : base(spell, initiator, repeats)
-        {
-            EventTags.Add(EventTag.CastSpell);
-        }
+        EventTags.Add(EventTag.CastSpell);
     }
 }

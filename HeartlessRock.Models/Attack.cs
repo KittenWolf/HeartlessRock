@@ -1,29 +1,28 @@
-﻿namespace HeartlessRock.Models
+﻿namespace HeartlessRock.Models;
+
+public class Attack
 {
-    public class Attack
+    private readonly int _default;
+
+    public int Current;
+
+    public Attack(int attack)
     {
-        private readonly int _default;
+        _default = Current = attack;
+    }
 
-        public int Current;
+    public void GetBuff(int value) 
+    {
+        Current += value;
+    }
 
-        public Attack(int attack)
-        {
-            _default = Current = attack;
-        }
+    public void Reset() 
+    {
+        Current = _default;
+    }
 
-        public void GetBuff(int value) 
-        {
-            Current += value;
-        }
-
-        public void Reset() 
-        {
-            Current = _default;
-        }
-
-        public void Set(int value) 
-        {
-            Current = value;
-        }
+    public void Set(int value) 
+    {
+        Current = value;
     }
 }

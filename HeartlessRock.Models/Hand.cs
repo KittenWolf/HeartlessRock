@@ -1,46 +1,45 @@
 ﻿using HeartlessRock.Models.Objects;
 
-namespace HeartlessRock.Models
+namespace HeartlessRock.Models;
+
+public class Hand
 {
-    public class Hand
+    private const int MaxHandSize = 10;
+
+    public List<Card> Cards = new(MaxHandSize);
+
+    public bool HasFreeSpace()
     {
-        private const int MaxHandSize = 10;
+        return Cards.Count < MaxHandSize;
+    }
 
-        public List<Card> Cards = new(MaxHandSize);
+    public void AddCards(List<Card> cards)
+    {
+        cards.ForEach(AddCard);
+    }
 
-        public bool HasFreeSpace()
+    public void AddCard(Card card)
+    {
+        if (Cards.Count + 1 <= MaxHandSize)
         {
-            return Cards.Count < MaxHandSize;
+            Cards.Add(card);
+        }
+        else
+        {
+            card.Destroy();
+        }
+    } 
+
+    public Card? GetCard(int index)
+    {
+        Card? card = null;
+
+        if (index >= 0 && index < Cards.Count)
+        {
+            card = Cards[index];
+            Cards.Remove(card);
         }
 
-        public void AddCards(List<Card> cards)
-        {
-            cards.ForEach(AddCard);
-        }
-
-        public void AddCard(Card card)
-        {
-            if (Cards.Count + 1 <= MaxHandSize)
-            {
-                Cards.Add(card);
-            }
-            else
-            {
-                card.Destroy();
-            }
-        } 
-
-        public Card? GetCard(int index)
-        {
-            Card? card = null;
-
-            if (index >= 0 && index < Cards.Count)
-            {
-                card = Cards[index];
-                Cards.Remove(card);
-            }
-
-            return card;
-        }
+        return card;
     }
 }

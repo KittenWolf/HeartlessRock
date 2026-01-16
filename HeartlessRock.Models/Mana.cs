@@ -1,37 +1,36 @@
-﻿namespace HeartlessRock.Models
+﻿namespace HeartlessRock.Models;
+
+public class Mana()
 {
-    public class Mana()
+    private const byte MaxManaCrystalsLimit = 10;
+
+    public byte EmptyManaCrystals { get; private set; }
+    public byte ManaCrystals { get; private set; } = 0;
+
+    public void Refresh()
     {
-        private const byte MaxManaCrystalsLimit = 10;
+        ManaCrystals = EmptyManaCrystals;
+    }
 
-        public byte EmptyManaCrystals { get; private set; }
-        public byte ManaCrystals { get; private set; } = 0;
-
-        public void Refresh()
+    public void Get(byte amount)
+    {
+        if (EmptyManaCrystals < MaxManaCrystalsLimit)
         {
-            ManaCrystals = EmptyManaCrystals;
+            EmptyManaCrystals += amount;
         }
-
-        public void Get(byte amount)
+        else
         {
-            if (EmptyManaCrystals < MaxManaCrystalsLimit)
-            {
-                EmptyManaCrystals += amount;
-            }
-            else
-            {
-                EmptyManaCrystals = MaxManaCrystalsLimit;
-            }
+            EmptyManaCrystals = MaxManaCrystalsLimit;
         }
+    }
 
-        public void Spend(byte mana)
-        {
-            ManaCrystals -= mana;
-        }
+    public void Spend(byte mana)
+    {
+        ManaCrystals -= mana;
+    }
 
-        public bool IsEnough(byte mana)
-        {
-            return ManaCrystals - mana >= 0;
-        }
+    public bool IsEnough(byte mana)
+    {
+        return ManaCrystals - mana >= 0;
     }
 }

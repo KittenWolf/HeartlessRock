@@ -1,11 +1,10 @@
-﻿namespace HeartlessRock.Events.Abstractions
-{
-    public interface IEventInitiator
-    {
-        ICollection<Enum> InitiatorTags { get; }
+﻿namespace HeartlessRock.Events.Abstractions;
 
-        void PushEvent(GameEventArgs args);
-        void InitEvents();
-        string ToString();
-    }
+public interface IEventInitiator
+{
+    ICollection<Enum> InitiatorTags { get; }
+
+    void PushEvent(GameEventArgs args);
+    void InitEvents();
+    string ToString();
 }

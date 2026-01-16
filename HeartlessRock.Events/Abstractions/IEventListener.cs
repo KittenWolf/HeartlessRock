@@ -1,7 +1,6 @@
-﻿namespace HeartlessRock.Events.Abstractions
+﻿namespace HeartlessRock.Events.Abstractions;
+
+public interface IEventListener
 {
-    public interface IEventListener
-    {
-        void Response(GameEventArgs.EventTag eventTag, ICollection<Enum> initiatorTags);
-    }
+    void Response(GameEventArgs.EventTag eventTag, ICollection<Enum> initiatorTags);
 }

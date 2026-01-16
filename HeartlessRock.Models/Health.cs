@@ -1,49 +1,48 @@
-﻿namespace HeartlessRock.Models
+﻿namespace HeartlessRock.Models;
+
+public class Health
 {
-    public class Health
+    private readonly int _default;
+    private int _max;
+
+    public int Current;
+
+    public Health(int health)
     {
-        private readonly int _default;
-        private int _max;
+        _default = Current = _max = health;
+    }
 
-        public int Current;
+    public void TakeDamage(int value)
+    {
+        Current -= value;
+    }
 
-        public Health(int health)
-        {
-            _default = Current = _max = health;
-        }
+    public void Set(int value)
+    {
+        Current = _max = value;
+    }
 
-        public void TakeDamage(int value)
-        {
-            Current -= value;
-        }
+    public void Reset()
+    {
+        _max = Current = _default;
+    }
 
-        public void Set(int value)
-        {
-            Current = _max = value;
-        }
+    public bool IsFull()
+    {
+        return Current < _max;
+    }
 
-        public void Reset()
-        {
-            _max = Current = _default;
-        }
+    public void GetBuff(int value)
+    {
+        Current += value;
+        _max += value;
+    }
 
-        public bool IsFull()
-        {
-            return Current < _max;
-        }
+    public void Restore(int value)
+    {
+        Current += value;
 
-        public void GetBuff(int value)
-        {
-            Current += value;
-            _max += value;
-        }
-
-        public void Restore(int value)
-        {
-            Current += value;
-
-            if (Current > _max)
-                Current = _max;
-        }
+        if (Current > _max)
+            Current = _max;
     }
 }

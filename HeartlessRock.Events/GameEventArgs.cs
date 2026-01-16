@@ -2,66 +2,65 @@
 using System.Reflection;
 using System.Text;
 
-namespace HeartlessRock.Events
+namespace HeartlessRock.Events;
+
+public abstract class GameEventArgs(IEventInitiator initiator, byte repeats) 
+    : EventArgs
 {
-    public abstract class GameEventArgs(IEventInitiator initiator, byte repeats) 
-        : EventArgs
+    [AttributeUsage(AttributeTargets.Field)] protected class EventArg : Attribute;        
+
+    public enum EventTag
     {
-        [AttributeUsage(AttributeTargets.Field)] protected class EventArg : Attribute;        
+        GameEvent,
+        StartOfTurn, EndOfTurn,
+        
+        PlayerEvent,
+        DrawCard,
+        GetMana,
+        RefreshMana,
+        PlayCard,
+        SummonMinion,
+        WearWepon,
+        CastSpell,
+        
+        CharacterEvent,
+        TargetableEvent,
+        DealHeal, TakeHeal,
+        DealDamage, TakeDamage,
+        DealBuff, TakeBuff,
+        Attack,
+        Battlecry,
+        Deathrattle
+    }
 
-        public enum EventTag
+    public byte Repeats { get; set; } = repeats;
+    public IEventInitiator Initiator { get; set; } = initiator;
+    public ICollection<EventTag> EventTags { get; private set; } = [ EventTag.GameEvent ];
+
+    public new string ToString()
+    {
+        StringBuilder sb = new();
+
+        sb.Append("Event: ");
+
+        foreach (var tag in EventTags)
         {
-            GameEvent,
-            StartOfTurn, EndOfTurn,
-            
-            PlayerEvent,
-            DrawCard,
-            GetMana,
-            RefreshMana,
-            PlayCard,
-            SummonMinion,
-            WearWepon,
-            CastSpell,
-            
-            CharacterEvent,
-            TargetableEvent,
-            DealHeal, TakeHeal,
-            DealDamage, TakeDamage,
-            DealBuff, TakeBuff,
-            Attack,
-            Battlecry,
-            Deathrattle
+            sb.Append($"[{tag}]");    
         }
 
-        public byte Repeats { get; set; } = repeats;
-        public IEventInitiator Initiator { get; set; } = initiator;
-        public ICollection<EventTag> EventTags { get; private set; } = [ EventTag.GameEvent ];
+        Type type = GetType();
+        var fields = type.GetFields();
 
-        public new string ToString()
+        foreach (var field in fields)
         {
-            StringBuilder sb = new();
-
-            sb.Append("Event: ");
-
-            foreach (var tag in EventTags)
+            if (field.GetCustomAttributes<EventArg>().Any())
             {
-                sb.Append($"[{tag}]");    
+                sb.Append($" ({field.GetValue(this)})");
             }
-
-            Type type = GetType();
-            var fields = type.GetFields();
-
-            foreach (var field in fields)
-            {
-                if (field.GetCustomAttributes<EventArg>().Any())
-                {
-                    sb.Append($" ({field.GetValue(this)})");
-                }
-            }
-
-            sb.Append($" Initiator: {Initiator}");
-
-            return sb.ToString();
         }
+
+        sb.Append($" Initiator: {Initiator}");
+
+        return sb.ToString();
     }
 }

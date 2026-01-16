@@ -1,9 +1,8 @@
-﻿namespace HeartlessRock.Models.Abstractions
+﻿namespace HeartlessRock.Models.Abstractions;
+
+public interface IAbility
 {
-    public interface IAbility
-    {
-        byte AbilityCost { get; }
-        string? AbilityInfo { get; }
-        IHero.HeroClass Class { get; }
-    }
+    byte AbilityCost { get; }
+    string? AbilityInfo { get; }
+    IHero.HeroClass Class { get; }
 }

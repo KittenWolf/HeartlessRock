@@ -1,21 +1,20 @@
-﻿namespace HeartlessRock.Models.Abstractions
-{
-    public partial interface ISpell
-    {
-        SpellCategory Category { get; init; }
-    }
+﻿namespace HeartlessRock.Models.Abstractions;
 
-    public partial interface ISpell
+public partial interface ISpell
+{
+    SpellCategory Category { get; init; }
+}
+
+public partial interface ISpell
+{
+    public enum SpellCategory
     {
-        public enum SpellCategory
-        {
-            Fire,
-            Arcane,
-            Frost,
-            Shadow,
-            Holy,
-            Nature,
-            Fel
-        }
+        Fire,
+        Arcane,
+        Frost,
+        Shadow,
+        Holy,
+        Nature,
+        Fel
     }
 }

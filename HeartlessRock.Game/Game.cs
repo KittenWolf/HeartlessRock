@@ -1,9 +1,8 @@
 ﻿using HeartlessRock.GameModes.Abstractions;
 
-namespace HeartlessRock.Game
+namespace HeartlessRock.Game;
+
+internal class Game(IGameMode gameMode)
 {
-    internal class Game(IGameMode gameMode)
-    {
-        private readonly IGameMode _gameMode = gameMode;
-    }
+    private readonly IGameMode _gameMode = gameMode;
 }

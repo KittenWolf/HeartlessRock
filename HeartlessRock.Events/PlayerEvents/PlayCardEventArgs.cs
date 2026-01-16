@@ -1,17 +1,16 @@
 ﻿using HeartlessRock.Events.Abstractions;
 using HeartlessRock.Models.Objects;
 
-namespace HeartlessRock.Events.PlayerEvents
-{
-    public abstract class PlayCardEventArgs : PlayerEventArgs
-    {
-        [EventArg] public readonly Card Card;
+namespace HeartlessRock.Events.PlayerEvents;
 
-        public PlayCardEventArgs(Card card, IEventInitiator initiator, byte repeats) 
-            : base(initiator, repeats)
-        {
-            Card = card;
-            EventTags.Add(EventTag.PlayCard);
-        }
+public abstract class PlayCardEventArgs : PlayerEventArgs
+{
+    [EventArg] public readonly Card Card;
+
+    public PlayCardEventArgs(Card card, IEventInitiator initiator, byte repeats) 
+        : base(initiator, repeats)
+    {
+        Card = card;
+        EventTags.Add(EventTag.PlayCard);
     }
 }

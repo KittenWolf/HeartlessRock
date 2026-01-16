@@ -1,13 +1,12 @@
 ﻿using HeartlessRock.Events.Abstractions;
 
-namespace HeartlessRock.Events.PlayerEvents
+namespace HeartlessRock.Events.PlayerEvents;
+
+public class RefreshManaCrystalsEventArgs : PlayerEventArgs
 {
-    public class RefreshManaCrystalsEventArgs : PlayerEventArgs
+    public RefreshManaCrystalsEventArgs(IEventInitiator initiator) 
+        : base(initiator, 1)
     {
-        public RefreshManaCrystalsEventArgs(IEventInitiator initiator) 
-            : base(initiator, 1)
-        {
-            EventTags.Add(EventTag.RefreshMana);
-        }
+        EventTags.Add(EventTag.RefreshMana);
     }
 }
