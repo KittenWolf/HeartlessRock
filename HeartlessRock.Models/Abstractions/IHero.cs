@@ -4,16 +4,16 @@ namespace HeartlessRock.Models.Abstractions;
 
 public partial interface IHero : ICharacter
 {
-    Weapon? Weapon { get; }
+    IWeapon? Weapon { get; }
     Ability? Ability { get; }
 
     void UseAbility();
-    void WearWeapon(Weapon weapon);
+    void WearWeapon(IWeapon weapon);
 }
 
 public partial interface IHero
 {
-    public enum HeroClass
+    enum HeroClass
     {
         Druid,
         Hunter,

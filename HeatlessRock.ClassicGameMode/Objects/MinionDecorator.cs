@@ -20,12 +20,12 @@ internal partial class MinionDecorator(Attack attack, Health health, string name
         throw new NotImplementedException();
     }
 
-    public override void RemoveProp(ICharacter.CharacterProp prop)
+    public override void RemoveEffect(ICharacter.CharacterEffect prop)
     {
         throw new NotImplementedException();
     }
 
-    public override void SetProp(ICharacter.CharacterProp prop)
+    public override void SetEffect(ICharacter.CharacterEffect prop)
     {
         throw new NotImplementedException();
     }

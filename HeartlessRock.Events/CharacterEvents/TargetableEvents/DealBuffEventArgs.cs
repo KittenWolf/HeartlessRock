@@ -7,13 +7,13 @@ namespace HeartlessRock.Events.CharacterEvents.TargetableEvents;
 public class DealBuffEventArgs : TargetableEventArgs
 {
     [EventArg] public readonly (int attack, int health) Stats;
-    [EventArg] public readonly ICharacter.CharacterProp Prop;
+    [EventArg] public readonly ICharacter.CharacterEffect Effect;
 
-    public DealBuffEventArgs((int attack, int health) stats, ICharacter.CharacterProp prop, Target target, IEventInitiator initiator, byte repeats) 
+    public DealBuffEventArgs((int attack, int health) stats, ICharacter.CharacterEffect effect, Target target, IEventInitiator initiator, byte repeats)
         : base(target, initiator, repeats)
     {
         Stats = stats;
-        Prop = prop;
+        Effect = effect;
         EventTags.Add(EventTag.DealBuff);
     }
 }

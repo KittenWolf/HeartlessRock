@@ -13,8 +13,9 @@ public abstract class Hero : GameObject, IHero
     public ConsoleColor Color => GetColor();
 
     [SearchTag] public IHero.HeroClass Class { get; init; }
-    [SearchTag] public ICollection<ICharacter.CharacterProp> Props { get; init; } = [];
-    [SearchTag] public ICharacter.CharacterCategory Category { get; init; } = ICharacter.CharacterCategory.NoType;
+    [SearchTag] public ICollection<ICharacter.CharacterType> Type { get; init; } = [];
+    [SearchTag] public ICollection<ICharacter.CharacterEffect> Effects { get; init; } = [];
+    [SearchTag] public ICollection<ICharacter.CharacterStatus> Statuses { get; init; } = [];
 
     public Hero(IHero.HeroClass @class)
     {
@@ -43,8 +44,8 @@ public abstract class Hero : GameObject, IHero
         };
     }
 
-    public abstract void SetProp(ICharacter.CharacterProp prop);
-    public abstract void RemoveProp(ICharacter.CharacterProp prop);
+    public abstract void SetEffect(ICharacter.CharacterEffect effect);
+    public abstract void RemoveEffect(ICharacter.CharacterEffect effect);
     public abstract void Die();
     public abstract void DoAttack();
     public abstract void TakeDamage(int damage);

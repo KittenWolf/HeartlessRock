@@ -2,16 +2,17 @@
 
 public partial interface IWeapon
 {
-    WeaponCategory Category { get; init; }
+    ICollection<WeaponCategory> Category { get; init; }
+    ICollection<WeaponEffect> WeaponEffects { get; init; }
 
-    void SetProp(WeaponProp prop);
-    void RemoveProp(WeaponProp prop);
+    void SetProp(WeaponEffect effect);
+    void RemoveProp(WeaponEffect effect);
     void Break();
 }
 
 public partial interface IWeapon
 {
-    public enum WeaponCategory
+    enum WeaponCategory
     {
         Bow,
         Dagger,
@@ -20,8 +21,10 @@ public partial interface IWeapon
         Shield,
     }
 
-    public enum WeaponProp
+    enum WeaponEffect
     {
         Poison,
+        Cleave,
+        Piercing,
     }
 }

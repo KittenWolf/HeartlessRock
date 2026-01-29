@@ -1,5 +1,4 @@
 ﻿using HeartlessRock.Models.Abstractions;
-using HeartlessRock.Models.Objects;
 
 namespace HeartlessRock.Models.Objects;
 
@@ -9,10 +8,11 @@ public abstract class Minion : Card, IMinion
     public Attack Attack { get; init; }
     public Health Health { get; init; }
 
-    [SearchTag] public ICollection<ICharacter.CharacterProp> Props { get; init; } = [];
-    [SearchTag] public ICharacter.CharacterCategory Category { get; init; } = ICharacter.CharacterCategory.NoType;
+    [SearchTag] public ICollection<ICharacter.CharacterType> Type { get; init; } = [];
+    [SearchTag] public ICollection<ICharacter.CharacterEffect> Effects { get; init; } = [];
+    [SearchTag] public ICollection<ICharacter.CharacterStatus> Statuses { get; init; } = [];
 
-    public Minion(Attack attack, Health health, string name, byte manaCost, Rarity.RarityType rarity, IHero.HeroClass @class) 
+    public Minion(Attack attack, Health health, string name, byte manaCost, Rarity.RarityType rarity, IHero.HeroClass @class)
         : base(name, manaCost, rarity, @class)
     {
         Attack = attack;
@@ -22,8 +22,8 @@ public abstract class Minion : Card, IMinion
         ObjectType.Add(GameObjectType.Character);
     }
 
-    public abstract void SetProp(ICharacter.CharacterProp prop);
-    public abstract void RemoveProp(ICharacter.CharacterProp prop);
+    public abstract void SetEffect(ICharacter.CharacterEffect effect);
+    public abstract void RemoveEffect(ICharacter.CharacterEffect effect);
     public abstract void Die();
     public abstract void DoAttack();
     public abstract void TakeDamage(int damage);

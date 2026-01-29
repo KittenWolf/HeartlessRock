@@ -6,22 +6,23 @@ public partial interface ICharacter
     Health Health { get; init; }
     Attack Attack { get; init; }
 
-    CharacterCategory Category { get; init; }
-    ICollection<CharacterProp> Props { get; init; }
+    ICollection<CharacterType> Type { get; init; }
+    ICollection<CharacterEffect> Effects { get; init; }
+    ICollection<CharacterStatus> Statuses { get; init; }
 
-    void SetProp(CharacterProp prop);
-    void RemoveProp(CharacterProp prop);
+    void SetEffect(CharacterEffect effect);
+    void RemoveEffect(CharacterEffect effect);
     void Die();
     void DoAttack();
     void TakeDamage(int value);
     void TakeHeal(int value);
 }
 
-#region enums
 public partial interface ICharacter
 {
-    public enum CharacterCategory
+    enum CharacterType
     {
+        NoType,
         Beast,
         BloodElf,
         Building,
@@ -33,12 +34,12 @@ public partial interface ICharacter
         NightElf,
         Orc,
         Ogre,
-        Pirate,
-        NoType,
+        Pirate
     }
 
-    public enum CharacterProp
+    enum CharacterEffect
     {
+        NoEffect,
         BKB,
         Charge,
         DivineShield,
@@ -49,14 +50,14 @@ public partial interface ICharacter
         Windfury,
     }
 
-    public enum CharacterStatus
+    enum CharacterStatus
     {
+        ReadyToAttack,
         Attacked,
-        NotAttacked,
-        CanAttack,
+        AlreadyAttacked,
         Damaged,
         Frozen,
         Sleep,
+        Bleeding,
     }
 }
-#endregion
